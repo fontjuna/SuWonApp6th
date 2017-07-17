@@ -2,47 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#975522"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/vicent_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="1"
         android:background="#0a97e4"
         android:scaleType="centerCrop"
         android:src="@drawable/bonfire_night" />
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#1a7e4c"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="cursive"
+        android:text="You're invited!"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="cursive"
-            android:text="You're invited!"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#975522"
+        android:fontFamily="cursive"
+        android:text="Bonfire at the night"
+        android:textColor="#ffffff"
+        android:textScaleX="2"
+        android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="cursive"
-            android:text="Bonfire at the night"
-            android:textColor="#ffffff"
-            android:textScaleX="2"
-            android:textSize="15sp" />
-
-    </LinearLayout>
 
 </LinearLayout>
