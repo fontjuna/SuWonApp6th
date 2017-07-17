@@ -4,39 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1"
     android:orientation="vertical"
+    android:weightSum="1"
     tools:context="hwa.seung.noh.suwonapp6th.MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:text="Hello"
+        android:textSize="25sp"
         android:layout_width="wrap_content"
-        android:layout_height="209dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/nodrawing"
-        android:layout_weight="0.86" />
+        android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <TextView
+        android:text="World"
+        android:textSize="25sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/button"
-            android:text="맞아"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/button2"
-            android:text="아냐"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:text="몰라"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
 </LinearLayout>
