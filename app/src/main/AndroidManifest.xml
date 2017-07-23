@@ -34,7 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MoveActivity"
+        <activity
+            android:name=".MoveActivity"
             android:label="화면 이동">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +43,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MoveOtherActivity"></activity>
+        <activity android:name=".MoveOtherActivity" />
+        <activity android:name=".SalesManagementActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SalesManagementOtherActivity"></activity>
     </application>
 
 </manifest>
