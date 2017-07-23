@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="24dp"
+    tools:context="hwa.seung.noh.suwonapp6th.MoveActivity">
+
+    <Button
+        android:layout_margin="8dp"
+        android:id="@+id/btn_basketball"
+        android:text="농구앱"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_coffee"
+        android:layout_margin="8dp"
+        android:text="커피앱"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_margin="8dp"
+        android:id="@+id/btn_movedata"
+        android:text="데이터전송"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

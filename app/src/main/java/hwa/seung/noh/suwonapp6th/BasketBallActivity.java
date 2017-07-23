@@ -23,38 +23,38 @@ public class BasketBallActivity extends AppCompatActivity {
     }
 
     public void onButtonClicked(View view) {
-        switch (view.getId()){
-            case R.id.buttonTeamA1:{
+        switch (view.getId()) {
+            case R.id.buttonTeamA1: {
                 mScoreA++;
                 break;
             }
-            case R.id.buttonTeamA2:{
-                mScoreA+=2;
+            case R.id.buttonTeamA2: {
+                mScoreA += 2;
                 break;
             }
-            case R.id.buttonTeamA3:{
-                mScoreA+=3;
+            case R.id.buttonTeamA3: {
+                mScoreA += 3;
                 break;
             }
-            case R.id.buttonTeamB1:{
+            case R.id.buttonTeamB1: {
                 mScoreB++;
                 break;
             }
-            case R.id.buttonTeamB2:{
-                mScoreB+=2;
+            case R.id.buttonTeamB2: {
+                mScoreB += 2;
                 break;
             }
-            case R.id.buttonTeamB3:{
-                mScoreB+=3;
+            case R.id.buttonTeamB3: {
+                mScoreB += 3;
                 break;
             }
-            case R.id.buttonReset:{
-                mScoreA=0;
-                mScoreB=0;
+            case R.id.buttonReset: {
+                mScoreA = 0;
+                mScoreB = 0;
                 break;
             }
         }
-        mTextViewTeamA.setText(mScoreA+"");
-        mTextViewTeamB.setText(mScoreB+"");
+        mTextViewTeamA.setText(mScoreA + "");
+        mTextViewTeamB.setText(mScoreB + "");
     }
- }
+}
