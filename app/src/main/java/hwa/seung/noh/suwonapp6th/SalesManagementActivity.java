@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class SalesManagementActivity extends AppCompatActivity {
 
@@ -17,9 +19,11 @@ public class SalesManagementActivity extends AppCompatActivity {
         findViewById(R.id.btn_login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText etId = (EditText) findViewById(R.id.et_id);
+                EditText etPassWord = (EditText) findViewById(R.id.et_password);
                 Intent intent = new Intent(SalesManagementActivity.this, SalesManagementOtherActivity.class);
-                intent.putExtra("id", findViewById(R.id.et_id).toString());
-                intent.putExtra("password", findViewById(R.id.et_password).toString());
+                intent.putExtra("id", etId.getText().toString());
+                intent.putExtra("password", etPassWord.getText().toString());
                 startActivityForResult(intent, REQUEST_CODE_LOGIN);
             }
         });
@@ -28,6 +32,9 @@ public class SalesManagementActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_LOGIN && resultCode == RESULT_OK && data != null) {
+            Toast.makeText(this, data.getStringExtra("result").toString(), Toast.LENGTH_SHORT).show();
+        }
     }
 
 
