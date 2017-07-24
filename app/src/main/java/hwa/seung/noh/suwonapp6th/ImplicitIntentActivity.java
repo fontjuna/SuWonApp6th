@@ -29,4 +29,19 @@ public class ImplicitIntentActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    public void onClickPhoneButton(View view) {
+        EditText phone_et = (EditText) findViewById(R.id.phone_et);
+        dialPhoneNumber(phone_et.getText().toString());
+    }
+
+    // 전화걸기 공통인텐트에서 복붙
+    public void dialPhoneNumber(String phoneNumber) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
 }
