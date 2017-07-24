@@ -44,4 +44,18 @@ public class ImplicitIntentActivity extends AppCompatActivity {
         }
     }
 
+    public void onClickSmsButton(View view) {
+        EditText sms_et = (EditText) findViewById(R.id.sms_et);
+        sendTextMessage(sms_et.getText().toString());
+    }
+
+    public void sendTextMessage(String message) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
 }
