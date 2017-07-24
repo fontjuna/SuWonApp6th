@@ -33,6 +33,28 @@ public class SalesManagementOtherActivity extends AppCompatActivity implements V
         }
     }
 
+    /*
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent();
+        switch (v.getId()) {
+            case R.id.btn_customer_management:
+                intent.putExtra("text", "고객관리");
+                break;
+            case R.id.btn_revenue_management:
+                intent.putExtra("text", "매출관리");
+                break;
+            case R.id.btn_product_management:
+                intent.putExtra("text", "상품관리");
+                break;
+        }
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+*/
+
+    // 위의 코드를 다음과 같이 변경
     @Override
     public void onClick(View v) {
         Intent intent = new Intent();
@@ -41,4 +63,5 @@ public class SalesManagementOtherActivity extends AppCompatActivity implements V
         setResult(RESULT_OK, intent);
         finish();
     }
+
 }
