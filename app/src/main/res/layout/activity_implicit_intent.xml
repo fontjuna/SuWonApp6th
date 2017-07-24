@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="hwa.seung.noh.suwonapp6th.ImplicitIntentActivity">
+
+    <EditText
+        android:id="@+id/url_et"
+        android:hint="URL"
+        android:inputType="textUri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/find_btn"
+        android:onClick="onClickFindButton"
+        android:text="웹브라우저 열기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
