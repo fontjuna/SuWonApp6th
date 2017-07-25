@@ -20,6 +20,7 @@ public class ImplicitIntentActivity extends AppCompatActivity {
         openWebPage(url_et.getText().toString());
     }
 
+
     // 암시적 인텐트
     // 공통 인텐트중 웹페이지 열기에서 가져옴
     public void openWebPage(String url) {
