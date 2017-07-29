@@ -1,7 +1,9 @@
 package hwa.seung.noh.suwonapp6th.adapterview;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -10,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -24,6 +27,7 @@ public class AdapterViewExamActivity extends AppCompatActivity {
     private static final String TAG = AdapterViewExamActivity.class.getSimpleName();
     private ArrayList<People> mPeopleData;
     private PeopleAdapter mAdapter;
+    private EditText mWeatherEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +91,12 @@ public class AdapterViewExamActivity extends AppCompatActivity {
 
         // Context 메뉴 연결 - 롱 클릭과 같이 쓸수없다
         registerForContextMenu(listView);
+
+        // Restore preferences
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        String weather = settings.getString("weather", "맑음");
+        mWeatherEditText = (EditText) findViewById(R.id.weather_edit);
+        mWeatherEditText.setText(weather);
     }
 
     @Override
@@ -145,5 +155,19 @@ public class AdapterViewExamActivity extends AppCompatActivity {
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // 저장
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("weather", mWeatherEditText.getText().toString());
+
+        // Commit the edits!
+        editor.apply();
+
+        // 뒤로가기
+        super.onBackPressed();
     }
 }
