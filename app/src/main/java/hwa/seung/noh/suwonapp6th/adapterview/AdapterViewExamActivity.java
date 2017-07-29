@@ -2,9 +2,7 @@ package hwa.seung.noh.suwonapp6th.adapterview;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,6 +22,7 @@ import java.util.ArrayList;
 
 import hwa.seung.noh.suwonapp6th.R;
 import hwa.seung.noh.suwonapp6th.util.DialogUtil;
+import hwa.seung.noh.suwonapp6th.util.SharePreferenceUtil;
 
 public class AdapterViewExamActivity extends AppCompatActivity {
 
@@ -31,6 +30,7 @@ public class AdapterViewExamActivity extends AppCompatActivity {
     private ArrayList<People> mPeopleData;
     private PeopleAdapter mAdapter;
     private EditText mWeatherEditText;
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class AdapterViewExamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adapter_view_exam);
 
         // view
-        ListView listView = (ListView) findViewById(R.id.list_view);
+        mListView = (ListView) findViewById(R.id.list_view);
         GridView gridView = (GridView) findViewById(R.id.grid_view);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
@@ -58,12 +58,12 @@ public class AdapterViewExamActivity extends AppCompatActivity {
         //adapter
         mAdapter = new PeopleAdapter(AdapterViewExamActivity.this, mPeopleData);
 
-        listView.setAdapter(mAdapter);
+        mListView.setAdapter(mAdapter);
 //        gridView.setAdapter(adapter);
 //        spinner.setAdapter(adapter);
 
         //OnItemClickListnser
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                People people = data.get(position);
@@ -93,11 +93,12 @@ public class AdapterViewExamActivity extends AppCompatActivity {
 //        });
 
         // Context 메뉴 연결 - 롱 클릭과 같이 쓸수없다
-        registerForContextMenu(listView);
+        registerForContextMenu(mListView);
 
         // Restore preferences
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        String weather = settings.getString("weather", "맑음");
+        String weather = SharePreferenceUtil.restoreWeather(this);
+
+        // SharedPreference 데이터복원
         mWeatherEditText = (EditText) findViewById(R.id.weather_edit);
         mWeatherEditText.setText(weather);
     }
@@ -203,12 +204,7 @@ public class AdapterViewExamActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // 저장
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString("weather", mWeatherEditText.getText().toString());
-
-        // Commit the edits!
-        editor.apply();
+        SharePreferenceUtil.saveWeather(this, mWeatherEditText.getText().toString());
 
         // 뒤로가기
         super.onBackPressed();
