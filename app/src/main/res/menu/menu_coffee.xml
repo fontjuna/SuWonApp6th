@@ -5,7 +5,7 @@
     <item
         android:id="@+id/menu_item1"
         android:icon="?android:attr/textSelectHandle"
-        android:title="Item1"
+        android:title="삭제"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_item2"
