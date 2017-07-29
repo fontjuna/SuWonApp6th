@@ -144,36 +144,62 @@ public class AdapterViewExamActivity extends AppCompatActivity {
         final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
             case R.id.menu_item1:
-                Toast.makeText(this, "menu 1", Toast.LENGTH_SHORT).show();
-
-                // 물어보자 Alert Dialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("삭제");
-                builder.setMessage("정말로 삭제 하시겠습니까?");
-                builder.setCancelable(false);
-                builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //Log.d(TAG, "onClick: " + which);
-                        // 삭제
-                        mPeopleData.remove(info.position);
-                        // 업데이트
-                        mAdapter.notifyDataSetChanged();
-
-                    }
-                });
-                builder.setNegativeButton("아니오", null);
-                builder.setIcon(R.drawable.girl);
-
-                builder.create().show();
-
+//                Toast.makeText(this, "menu 1", Toast.LENGTH_SHORT).show();
+                showDefaultDialog(info);
                 return true;
             case R.id.menu_item2:
-                Toast.makeText(this, "menu 2", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "menu 2", Toast.LENGTH_SHORT).show();
+                showCustomDialog();
                 return true;
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+
+    private void showCustomDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_signin, null, false);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+
+        view.findViewById(R.id.positive_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AdapterViewExamActivity.this, "잘 눌림", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+        view.findViewById(R.id.negative_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    private void showDefaultDialog(final AdapterView.AdapterContextMenuInfo info) {
+        // 물어보자 Alert Dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("삭제");
+        builder.setMessage("정말로 삭제 하시겠습니까?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Log.d(TAG, "onClick: " + which);
+                // 삭제
+                mPeopleData.remove(info.position);
+                // 업데이트
+                mAdapter.notifyDataSetChanged();
+
+            }
+        });
+        builder.setNegativeButton("아니오", null);
+        builder.setIcon(R.drawable.girl);
+
+        builder.create().show();
     }
 
     @Override
