@@ -51,17 +51,17 @@ public class PeopleAdapter extends BaseAdapter {
     // parent - 이 어댑터가 붙을 부모의 레퍼런스(ListView나 GridView)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-//        if (convertView == null) {
+        if (convertView == null) {
             //최초
-            // 에이아웃 가져오기
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_exam, parent, false);
-            ImageView imageView = (ImageView) convertView.findViewById(R.id.image_view);
-            TextView nameTextView = (TextView) convertView.findViewById(R.id.name_text);
-            TextView phoneTextView = (TextView) convertView.findViewById(R.id.phone_text);
+        }
 
-//        } else {
-            //재사용
-//        }
+        // 레이아웃 가져오기
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.image_view);
+        TextView nameTextView = (TextView) convertView.findViewById(R.id.name_text);
+        TextView phoneTextView = (TextView) convertView.findViewById(R.id.phone_text);
+
+        // data
         People people = (People) getItem(position);
 
         // 뿌리기
