@@ -1,9 +1,11 @@
 package hwa.seung.noh.suwonapp6th.adapterview;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -139,14 +141,31 @@ public class AdapterViewExamActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
             case R.id.menu_item1:
                 Toast.makeText(this, "menu 1", Toast.LENGTH_SHORT).show();
-                // 삭제
-                mPeopleData.remove(info.position);
-                // 업데이트
-                mAdapter.notifyDataSetChanged();
+
+                // 물어보자 Alert Dialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("삭제");
+                builder.setMessage("정말로 삭제 하시겠습니까?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Log.d(TAG, "onClick: " + which);
+                        // 삭제
+                        mPeopleData.remove(info.position);
+                        // 업데이트
+                        mAdapter.notifyDataSetChanged();
+
+                    }
+                });
+                builder.setNegativeButton("아니오", null);
+                builder.setIcon(R.drawable.girl);
+
+                builder.create().show();
 
                 return true;
             case R.id.menu_item2:
