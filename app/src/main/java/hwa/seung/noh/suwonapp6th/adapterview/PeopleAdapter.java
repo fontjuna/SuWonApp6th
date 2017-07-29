@@ -51,24 +51,40 @@ public class PeopleAdapter extends BaseAdapter {
     // parent - 이 어댑터가 붙을 부모의 레퍼런스(ListView나 GridView)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = null;
         if (convertView == null) {
             //최초
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_exam, parent, false);
+            holder = new ViewHolder();
+
+            // 레이아웃 가져오기
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.image_view);
+            TextView nameTextView = (TextView) convertView.findViewById(R.id.name_text);
+            TextView phoneTextView = (TextView) convertView.findViewById(R.id.phone_text);
+            holder.image = imageView;
+            holder.name = nameTextView;
+            holder.phone = phoneTextView;
+
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        // 레이아웃 가져오기
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.image_view);
-        TextView nameTextView = (TextView) convertView.findViewById(R.id.name_text);
-        TextView phoneTextView = (TextView) convertView.findViewById(R.id.phone_text);
 
         // data
         People people = (People) getItem(position);
 
         // 뿌리기
-        imageView.setImageResource(people.getPicture());
-        nameTextView.setText(people.getName());
-        phoneTextView.setText(people.getPhone());
+        holder.image.setImageResource(people.getPicture());
+        holder.name.setText(people.getName());
+        holder.phone.setText(people.getPhone());
 
         return convertView;
+    }
+
+    private static class ViewHolder {
+        ImageView image;
+        TextView name;
+        TextView phone;
     }
 }
