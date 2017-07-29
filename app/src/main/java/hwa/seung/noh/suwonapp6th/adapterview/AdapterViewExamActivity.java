@@ -2,12 +2,12 @@ package hwa.seung.noh.suwonapp6th.adapterview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -53,14 +53,22 @@ public class AdapterViewExamActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                People people = data.get(position);
                 People people = (People) parent.getAdapter().getItem(position);
-//                Toast.makeText(AdapterViewExamActivity.this, people.toString(), Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "onItemClick: " + people.toString());  // debug
-                Log.e(TAG, "onItemClick: 에러");
-                Log.i(TAG, "onItemClick: 정보");
-                Log.w(TAG, "onItemClick: 경고");
+                Toast.makeText(AdapterViewExamActivity.this, "그냥클릭", Toast.LENGTH_SHORT).show();
+//                Log.d(TAG, "onItemClick: " + people.toString());  // debug
+//                Log.e(TAG, "onItemClick: 에러");
+//                Log.i(TAG, "onItemClick: 정보");
+//                Log.w(TAG, "onItemClick: 경고");
             }
         });
 
 
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(AdapterViewExamActivity.this, "롱 클릭", Toast.LENGTH_SHORT).show();
+                return true; // true의 경우 이벤트 소비를 하겠다. 더이상 이벤트가 흘러가지 않겠다
+                // 이벤트 소비를 제어 (false의 경우 "롱 클릭" 이 보인후 "그냥 클릭"도 보이게된다)
+            }
+        });
     }
 }
