@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="최초액티비티">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +46,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MoveOtherActivity" />
-        <activity android:name=".SalesManagementActivity"
+        <activity
+            android:name=".SalesManagementActivity"
             android:label="영업관리">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,7 +56,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SalesManagementOtherActivity" />
-        <activity android:name=".ImplicitIntentActivity"
+        <activity
+            android:name=".ImplicitIntentActivity"
             android:label="웹브라우저열기">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,6 +65,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignUpActivity"
+            android:label="회원가입">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignUpSubActivity"
+            android:label="회원가입결과"></activity>
     </application>
 
 </manifest>
