@@ -1,5 +1,7 @@
 package hwa.seung.noh.suwonapp6th;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +24,7 @@ public class CoffeeActivity extends AppCompatActivity {
     private int mQuantity = MINIMUM_QTY;
 
     private DecimalFormat df = new DecimalFormat("#,##0");
+    private String mMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +56,28 @@ public class CoffeeActivity extends AppCompatActivity {
 
     private void priceView() {
         mQuantityTextView.setText(mQuantity + "");
-        String message = "주문자 : " + mNameEditText.getText().toString();
-        message += "\n========================";
-        message += "\n휘핑크림 추가 : " + mWhippingCreamChecked.isChecked();
-        message += "\n갯수 : " + mQuantity;
-        message += "\n가격 : " + df.format(mQuantity * UNIT_PRICE + (mWhippingCreamChecked.isChecked() ? 1000 : 0)) + "원";
-        mPriceTextView.setText(message);
+        mMessage = "주문자 : " + mNameEditText.getText().toString();
+        mMessage += "\n========================";
+        mMessage += "\n휘핑크림 추가 : " + mWhippingCreamChecked.isChecked();
+        mMessage += "\n갯수 : " + mQuantity;
+        mMessage += "\n가격 : " +
+                df.format(mQuantity * UNIT_PRICE +
+                        (mWhippingCreamChecked.isChecked() ? 1000 : 0)) + "원";
+        mPriceTextView.setText(mMessage);
     }
 
     public void onCheckBoxClicked(View view) {
         priceView();
+    }
+
+    public void orderClick(View view) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"master@suwonsmartapp.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "커피주문");
+        intent.putExtra(Intent.EXTRA_TEXT, mMessage);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }

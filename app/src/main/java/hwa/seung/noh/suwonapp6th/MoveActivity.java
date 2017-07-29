@@ -47,6 +47,15 @@ public class MoveActivity extends AppCompatActivity {
         });
     }
 
+    class MyOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            //Toast.makeText(MoveActivity.this, "잘 되나", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MoveActivity.this, BasketBallActivity.class);
+            startActivity(intent);
+        }
+    }
+
     // startActivityForResult의 결과를 받는 곳
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -60,12 +69,4 @@ public class MoveActivity extends AppCompatActivity {
         }
     }
 
-    class MyOnClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            //Toast.makeText(MoveActivity.this, "잘 되나", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MoveActivity.this, BasketBallActivity.class);
-            startActivity(intent);
-        }
-    }
 }
