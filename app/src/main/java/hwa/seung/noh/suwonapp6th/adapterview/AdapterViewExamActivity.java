@@ -1,5 +1,6 @@
 package hwa.seung.noh.suwonapp6th.adapterview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -58,6 +59,12 @@ public class AdapterViewExamActivity extends AppCompatActivity {
 //                Log.e(TAG, "onItemClick: 에러");
 //                Log.i(TAG, "onItemClick: 정보");
 //                Log.w(TAG, "onItemClick: 경고");
+                Intent intent = new Intent(AdapterViewExamActivity.this, DetailAddressActivity.class);
+                intent.putExtra("name", people.getName());
+                intent.putExtra("phone", people.getPhone());
+                intent.putExtra("picture", people.getPicture());
+                startActivity(intent);
+
             }
         });
 
