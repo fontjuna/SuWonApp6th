@@ -1,6 +1,7 @@
 package hwa.seung.noh.suwonapp6th.adapterview;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import hwa.seung.noh.suwonapp6th.R;
  */
 
 public class PeopleAdapter extends BaseAdapter {
+
+    private final String TAG = PeopleAdapter.class.getSimpleName();
 
     private final Context mContext;
     private final List<People> mData;
@@ -54,6 +57,7 @@ public class PeopleAdapter extends BaseAdapter {
         ViewHolder holder = null;
         if (convertView == null) {
             //최초
+            Log.d(TAG, "getView 최초 : "+position);
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_exam, parent, false);
             holder = new ViewHolder();
 
@@ -67,6 +71,7 @@ public class PeopleAdapter extends BaseAdapter {
 
             convertView.setTag(holder);
         } else {
+            Log.d(TAG, "getView 재사용 : "+position);
             holder = (ViewHolder) convertView.getTag();
         }
 
