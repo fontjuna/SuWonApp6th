@@ -23,6 +23,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import hwa.seung.noh.suwonapp6th.R;
+import hwa.seung.noh.suwonapp6th.util.DialogUtil;
 
 public class AdapterViewExamActivity extends AppCompatActivity {
 
@@ -180,26 +181,23 @@ public class AdapterViewExamActivity extends AppCompatActivity {
     }
 
     private void showDefaultDialog(final AdapterView.AdapterContextMenuInfo info) {
-        // 물어보자 Alert Dialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("삭제");
-        builder.setMessage("정말로 삭제 하시겠습니까?");
-        builder.setCancelable(false);
-        builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+
+        DialogUtil.createAlertDialog(this, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //Log.d(TAG, "onClick: " + which);
-                // 삭제
-                mPeopleData.remove(info.position);
-                // 업데이트
-                mAdapter.notifyDataSetChanged();
-
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        // 삭제
+                        mPeopleData.remove(info.position);
+                        // 업데이트
+                        mAdapter.notifyDataSetChanged();
+                        break;
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        break;
+                }
             }
-        });
-        builder.setNegativeButton("아니오", null);
-        builder.setIcon(R.drawable.girl);
+        }).show();
 
-        builder.create().show();
     }
 
     @Override
