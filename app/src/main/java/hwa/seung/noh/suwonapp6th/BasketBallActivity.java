@@ -57,4 +57,26 @@ public class BasketBallActivity extends AppCompatActivity {
         mTextViewTeamA.setText(mScoreA + "");
         mTextViewTeamB.setText(mScoreB + "");
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        // 저장
+        outState.putInt("A", mScoreA);
+        outState.putInt("B", mScoreB);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // 복원
+        mScoreA = savedInstanceState.getInt("A");
+        mScoreB = savedInstanceState.getInt("B");
+        mTextViewTeamA.setText(mScoreA + "");
+        mTextViewTeamB.setText(mScoreB + "");
+    }
 }

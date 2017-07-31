@@ -73,6 +73,20 @@ public class LifeCycleActivity extends AppCompatActivity {
         Log.d(TAG, "onDestroy: ");
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //저장
+        Log.d(TAG, "onSaveInstanceState: ");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        //복원
+        Log.d(TAG, "onRestoreInstanceState: ");
+    }
+
     public void showDialog(View view) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("TEST");
