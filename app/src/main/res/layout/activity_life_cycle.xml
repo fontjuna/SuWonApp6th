@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="hwa.seung.noh.suwonapp6th.LifeCycleActivity">
+
+    <Button
+        android:id="@+id/test_button"
+        android:onClick="showDialog"
+        android:text="Test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>\
+
+    <Button
+        android:id="@+id/inc_button"
+        android:text="0"
+        android:onClick="increament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
