@@ -20,6 +20,13 @@ public class BasketBallActivity extends AppCompatActivity {
         mTextViewTeamA = (TextView) findViewById(R.id.textViewTeamA);
         mTextViewTeamB = (TextView) findViewById(R.id.textViewTeamB);
 
+        if (savedInstanceState != null) {
+            mScoreA = savedInstanceState.getInt("A");
+            mScoreB = savedInstanceState.getInt("B");
+            mTextViewTeamA.setText(mScoreA + "");
+            mTextViewTeamB.setText(mScoreB + "");
+        }
+
     }
 
     public void onButtonClicked(View view) {
@@ -68,15 +75,15 @@ public class BasketBallActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        // Always call the superclass so it can restore the view hierarchy
-        super.onRestoreInstanceState(savedInstanceState);
-
-        // 복원
-        mScoreA = savedInstanceState.getInt("A");
-        mScoreB = savedInstanceState.getInt("B");
-        mTextViewTeamA.setText(mScoreA + "");
-        mTextViewTeamB.setText(mScoreB + "");
-    }
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        // Always call the superclass so it can restore the view hierarchy
+//        super.onRestoreInstanceState(savedInstanceState);
+//
+//        // 복원
+//        mScoreA = savedInstanceState.getInt("A");
+//        mScoreB = savedInstanceState.getInt("B");
+//        mTextViewTeamA.setText(mScoreA + "");
+//        mTextViewTeamB.setText(mScoreB + "");
+//    }
 }
