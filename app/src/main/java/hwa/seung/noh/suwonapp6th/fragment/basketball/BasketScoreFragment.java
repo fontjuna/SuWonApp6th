@@ -37,6 +37,17 @@ public class BasketScoreFragment extends Fragment implements View.OnClickListene
         view.findViewById(R.id.button_1).setOnClickListener(this);
         view.findViewById(R.id.button_2).setOnClickListener(this);
         view.findViewById(R.id.button_3).setOnClickListener(this);
+
+        if (savedInstanceState != null) {
+            mScore = savedInstanceState.getInt("score");
+            mScoreTextView.setText("" + mScore);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("score", mScore);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -60,7 +71,7 @@ public class BasketScoreFragment extends Fragment implements View.OnClickListene
         mScoreTextView.setText("" + 0);
     }
 
-    public void setTeamName(String name){
+    public void setTeamName(String name) {
         mTeamNameTextView.setText(name);
     }
 }
