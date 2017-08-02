@@ -16,8 +16,10 @@ public class BasketBallActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket_ball2);
 
-        mATeamFragment = (BasketScoreFragment) getSupportFragmentManager().findFragmentById(R.id.frag_team_a);
-        mBTeamFragment = (BasketScoreFragment) getSupportFragmentManager().findFragmentById(R.id.frag_team_b);
+        mATeamFragment = (BasketScoreFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.frag_team_a);
+        mBTeamFragment = (BasketScoreFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.frag_team_b);
 
         mBTeamFragment.setTeamName("Team B");
     }
@@ -26,12 +28,4 @@ public class BasketBallActivity extends AppCompatActivity {
         mATeamFragment.reset();
         mBTeamFragment.reset();
     }
-//    @Override
-//    public void onWarning(String teamName) {
-//        if (teamName.equals("Team A")) {
-//            mBTeamFragment.warning();
-//        } else {
-//            mATeamFragment.warning();
-//        }
-//    }
 }

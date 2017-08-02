@@ -23,7 +23,8 @@ public class BasketScoreFragment extends Fragment implements View.OnClickListene
     //뷰를 만드는 곳
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_basket_score, container, false);
     }
 
