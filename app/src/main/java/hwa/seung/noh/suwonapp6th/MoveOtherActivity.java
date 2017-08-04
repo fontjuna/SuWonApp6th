@@ -13,23 +13,15 @@ public class MoveOtherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_move_other);
 
-        // 넘어온 데이타 받기
         Intent intent = getIntent();
-        if (intent != null) {
-            String message = intent.getStringExtra("message");
-            // 프리미티브 타입은 초기 값이 필요하므로 인자가 하나 더있다.
-            int age = intent.getIntExtra("age", 0);
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        }
+        String message = intent.getStringExtra("hello");
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    public void btnFinishClicked(View view) {
-        // 나이를 돌려준다
+    public void onFinishButtonClicked(View view) {
         Intent intent = new Intent();
-        intent.putExtra("age",100);
+        intent.putExtra("back", "다시 가라해서 되돌아 왔슈!");
         setResult(RESULT_OK, intent);
-
-        // Activity 종료
         finish();
     }
 }
