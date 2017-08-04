@@ -40,10 +40,16 @@ public class ImplicitIntentActivity extends AppCompatActivity {
     }
 
     public void onSmsButtonClicked(View view) {
+//        Intent intent = new Intent(Intent.ACTION_SEND);
+//        intent.setData(Uri.parse("smsto:" + mSmsEditText.getText().toString()));  // This ensures only SMS apps respond
+//        intent.putExtra("sms_body", "실험적 문자 메세지이니 답장 줘!");
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setData(Uri.parse("smsto:" + mSmsEditText.getText().toString()));  // This ensures only SMS apps respond
-        intent.putExtra("sms_body", "실험적 문자 메세지이니 답장 줘!");
-        if (intent.resolveActivity(getPackageManager()) != null) {
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT,"실험적 문자 메세지이니 답장 줘!");
+        if(intent.resolveActivity(getPackageManager())!=null){
             startActivity(intent);
         }
     }
