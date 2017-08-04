@@ -1,52 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="hwa.seung.noh.suwonapp6th.ImplicitIntentActivity">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="hwa.seung.noh.suwonapp6th.ImplicitIntentActivity">
 
     <EditText
-        android:id="@+id/url_et"
+        android:id="@+id/url_edit_text"
         android:hint="URL"
         android:inputType="textUri"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/find_btn"
-        android:onClick="onClickFindButton"
+        android:id="@+id/web_button"
+        android:onClick="onWebButtonClicked"
         android:text="웹브라우저 열기"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/phone_et"
-        android:hint="전화번호"
-        android:inputType="phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/phone_btn"
-        android:onClick="onClickPhoneButton"
-        android:text="전화 걸기"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/sms_et"
-        android:hint="메세지"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/sms_btn"
-        android:onClick="onClickSmsButton"
-        android:text="메세지 보내기"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
 </LinearLayout>

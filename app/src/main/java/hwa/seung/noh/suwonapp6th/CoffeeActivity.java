@@ -13,7 +13,8 @@ import java.text.DecimalFormat;
 
 public class CoffeeActivity extends AppCompatActivity {
 
-    private final int UNIT_PRICE = 3000;
+    public static final int WHIPPING_CREAM_UNIT_PRICE = 1000;
+    private final int COFFEE_UNIT_PRICE = 3000;
     private final int MINIMUM_QTY = 1;
 
     private EditText mNameEditText;
@@ -59,7 +60,8 @@ public class CoffeeActivity extends AppCompatActivity {
         message += "\n========================";
         message += "\n휘핑크림 추가 : " + mWhippingCreamChecked.isChecked();
         message += "\n갯수 : " + mQuantity;
-        message += "\n가격 : " + df.format(mQuantity * UNIT_PRICE + (mWhippingCreamChecked.isChecked() ? 1000 : 0)) + "원";
+        message += "\n가격 : " + df.format(mQuantity * COFFEE_UNIT_PRICE
+                + (mWhippingCreamChecked.isChecked() ? WHIPPING_CREAM_UNIT_PRICE : 0)) + "원";
         mPriceTextView.setText(message);
     }
 
