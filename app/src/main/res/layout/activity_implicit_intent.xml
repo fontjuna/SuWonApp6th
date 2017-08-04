@@ -20,4 +20,31 @@
         android:text="웹브라우저 열기"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/phone_edit_text"
+        android:hint="Phone number"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/phone_button"
+        android:onClick="onPhoneButtonClicked"
+        android:text="전화 걸기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/sms_edit_text"
+        android:hint="Phone number"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/sms_button"
+        android:onClick="onSmsButtonClicked"
+        android:text="메세지보내기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
