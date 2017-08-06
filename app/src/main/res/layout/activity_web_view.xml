@@ -7,4 +7,44 @@
     android:orientation="vertical"
     tools:context="hwa.seung.noh.suwonapp6th.WebViewActivity">
 
+    <EditText
+        android:id="@+id/url_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Url"/>
+
+    <Button
+        android:onClick="onMoveButtonClicked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이동"/>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:onClick="onBackButtonClicked"
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"/>
+
+        <Button
+            android:onClick="onForwardButtonClicked"
+            android:id="@+id/forward_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="forward"/>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/window_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </WebView>
 </LinearLayout>
