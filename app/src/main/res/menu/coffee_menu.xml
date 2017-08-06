@@ -4,7 +4,7 @@
     <item
         android:id="@+id/item1_menu"
         android:icon="@mipmap/ic_launcher_round"
-        android:title="Item 1"
+        android:title="삭제"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/item2_menu"
