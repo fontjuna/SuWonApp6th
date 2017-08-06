@@ -19,7 +19,8 @@ public class WebViewActivity extends AppCompatActivity {
 
         mWebView = (WebView) findViewById(R.id.window_web_view);
         mUrlEditText = (EditText) findViewById(R.id.url_edit_text);
-        mWebView.setWebViewClient(new WebViewClient());
+        mWebView.setWebViewClient(new WebViewClient());     // 안 해주면 안됨
+        mWebView.getSettings().setJavaScriptEnabled(true);  // 자바스크립트 페이지 보이게
 
     }
 
