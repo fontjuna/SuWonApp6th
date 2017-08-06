@@ -2,7 +2,6 @@ package hwa.seung.noh.suwonapp6th.adapterview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,17 +18,20 @@ public class AdapterViewExamActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list_view);
 
         // 1단계 : 데이타 준비
-        ArrayList<String> data = new ArrayList<>();
+        ArrayList<People> data = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            data.add("데이타 " + i);
+            int picture;
+            if (i % 2 == 0) {
+                picture = R.mipmap.ic_launcher;
+            } else {
+                picture = R.drawable.ic_touch_app_black_24dp;
+            }
+            People people = new People("아무개 " + i, "전화번호 " + i, picture);
+            data.add(people);
         }
 
         // 2단계 : 어댑터 준비
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                AdapterViewExamActivity.this,
-                android.R.layout.simple_list_item_1,
-                data
-        );
+        PeopleAdapter adapter = new PeopleAdapter(AdapterViewExamActivity.this, data);
 
         // 3단계 : 연결
         listView.setAdapter(adapter);
