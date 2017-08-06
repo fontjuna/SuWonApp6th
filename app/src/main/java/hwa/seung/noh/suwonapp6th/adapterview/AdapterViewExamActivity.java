@@ -1,10 +1,14 @@
 package hwa.seung.noh.suwonapp6th.adapterview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,5 +45,28 @@ public class AdapterViewExamActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         gridView.setAdapter(adapter);
         spinner.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                People people = (People) parent.getAdapter().getItem(position);
+                // Toast.makeText(AdapterViewExamActivity.this, people.toString(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AdapterViewExamActivity.this, DetailAddressActivity.class);
+                intent.putExtra("name", people.getName());
+                intent.putExtra("phone", people.getPhone());
+                intent.putExtra("image", people.getImage());
+                startActivity(intent);
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(AdapterViewExamActivity.this, "롱 클릭", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
+
+
 }
