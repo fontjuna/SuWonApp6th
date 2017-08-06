@@ -71,7 +71,7 @@ public class PeopleAdapter extends BaseAdapter {
         return convertView;
     }
 
-    static class ViewHolder {
+    private static class ViewHolder {
         private ImageView image;
         private TextView name;
         private TextView phone;
