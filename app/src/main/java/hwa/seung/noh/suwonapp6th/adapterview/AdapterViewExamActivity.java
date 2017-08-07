@@ -136,30 +136,55 @@ public class AdapterViewExamActivity extends AppCompatActivity implements AlertD
             case R.id.item1_menu:
 //                Toast.makeText(this, "1 번 클릭", Toast.LENGTH_SHORT).show();
                 //삭제전 다이얼로그 띄워 삭제 물어봄
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("삭제");
-                builder.setMessage("정말 삭제 합니까?");
-                builder.setCancelable(false);
-                builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //삭제
-                        mPeopleData.remove(info.position);
-                        //데이타가 변경되었음을 에댑터에게 통지하여 화면 갱신
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-                builder.setNegativeButton("아니오", this);
-                builder.create().show();
-
+                showDefalultDialog(info);
                 return true;
             case R.id.item2_menu:
-                Toast.makeText(this, "2 번 클릭", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "2 번 클릭", Toast.LENGTH_SHORT).show();
+                showCustomDialog();
                 return true;
             default:
                 return super.onContextItemSelected(item);
         }
 
+    }
+
+    private void showCustomDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_signin, null, false);
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        view.findViewById(R.id.positive_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AdapterViewExamActivity.this, "잘 된다", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+        view.findViewById(R.id.negative_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    private void showDefalultDialog(final AdapterView.AdapterContextMenuInfo info) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("삭제");
+        builder.setMessage("정말 삭제 합니까?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //삭제
+                mPeopleData.remove(info.position);
+                //데이타가 변경되었음을 에댑터에게 통지하여 화면 갱신
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+        builder.setNegativeButton("아니오", this);
+        builder.create().show();
     }
 
     @Override
@@ -178,7 +203,12 @@ public class AdapterViewExamActivity extends AppCompatActivity implements AlertD
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-
+        switch (which) {
+            case DialogInterface.BUTTON_NEGATIVE:
+                break;
+            case DialogInterface.BUTTON_POSITIVE:
+                break;
+        }
     }
 }
 
