@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -132,7 +133,15 @@ public class AdapterViewExamActivity extends AppCompatActivity {
         // 롱클릭했을 때 나오는 context Menu 의 항목을 선택(클릭) 했을 때 호출
         switch (item.getItemId()) {
             case R.id.item1_menu:
-                Toast.makeText(this, "1 번 클릭", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "1 번 클릭", Toast.LENGTH_SHORT).show();
+                //삭제전 다이얼로그 띄워 삭제 물어봄
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("삭제");
+                builder.setMessage("정말 삭제 합니까?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("삭제",null);
+                builder.setNegativeButton("아니오",null);
+                builder.create().show();
                 //삭제
                 mPeopleData.remove(info.position);
                 //데이타가 변경되었음을 에댑터에게 통지하여 화면 갱신
