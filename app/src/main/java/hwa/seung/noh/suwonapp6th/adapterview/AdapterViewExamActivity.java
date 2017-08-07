@@ -1,5 +1,6 @@
 package hwa.seung.noh.suwonapp6th.adapterview;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 
 import hwa.seung.noh.suwonapp6th.R;
 
-public class AdapterViewExamActivity extends AppCompatActivity {
+public class AdapterViewExamActivity extends AppCompatActivity implements AlertDialog.OnClickListener {
 
     ArrayList<People> mPeopleData;
     PeopleAdapter mAdapter;
@@ -82,7 +83,7 @@ public class AdapterViewExamActivity extends AppCompatActivity {
         registerForContextMenu(listView);
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        String weather = settings.getString("weather","맑음");
+        String weather = settings.getString("weather", "맑음");
         mWeatherEditText = (EditText) findViewById(R.id.weather_edit);
         mWeatherEditText.setText(weather);
 
@@ -128,7 +129,7 @@ public class AdapterViewExamActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)
                 item.getMenuInfo();
         // 롱클릭했을 때 나오는 context Menu 의 항목을 선택(클릭) 했을 때 호출
         switch (item.getItemId()) {
@@ -139,13 +140,17 @@ public class AdapterViewExamActivity extends AppCompatActivity {
                 builder.setTitle("삭제");
                 builder.setMessage("정말 삭제 합니까?");
                 builder.setCancelable(false);
-                builder.setPositiveButton("삭제",null);
-                builder.setNegativeButton("아니오",null);
+                builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //삭제
+                        mPeopleData.remove(info.position);
+                        //데이타가 변경되었음을 에댑터에게 통지하여 화면 갱신
+                        mAdapter.notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("아니오", this);
                 builder.create().show();
-                //삭제
-                mPeopleData.remove(info.position);
-                //데이타가 변경되었음을 에댑터에게 통지하여 화면 갱신
-                mAdapter.notifyDataSetChanged();
 
                 return true;
             case R.id.item2_menu:
@@ -169,6 +174,11 @@ public class AdapterViewExamActivity extends AppCompatActivity {
 
         // 뒤로가기
         super.onBackPressed();
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+
     }
 }
 
