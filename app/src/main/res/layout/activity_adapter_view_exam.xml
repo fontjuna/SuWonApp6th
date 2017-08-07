@@ -8,6 +8,12 @@
     android:padding="8dp"
     tools:context="hwa.seung.noh.suwonapp6th.adapterview.AdapterViewExamActivity">
 
+    <EditText
+        android:id="@+id/weather_edit"
+        android:hint="오늘의 날씨"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
@@ -16,6 +22,7 @@
         tools:listitem="@layout/item_exam"/>
 
     <GridView
+        android:visibility="gone"
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,6 +30,7 @@
         android:numColumns="3"/>
 
     <Spinner
+        android:visibility="invisible"
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
