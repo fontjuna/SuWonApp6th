@@ -26,16 +26,16 @@ public class ColorFragment extends Fragment {
         // Required empty public constructor
     }
 
-    // 팩토리 패턴
-    public static ColorFragment newInstance(int color) {
+// 팩토리 패턴
+public static ColorFragment newInstance(int color) {
 
-        Bundle args = new Bundle();
-        args.putInt("color", color);
+    Bundle args = new Bundle();
+    args.putInt("color", color);
 
-        ColorFragment fragment = new ColorFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
+    ColorFragment fragment = new ColorFragment();
+    fragment.setArguments(args);
+    return fragment;
+}
 
 
     public static ColorFragment newInstance() {
@@ -60,21 +60,21 @@ public class ColorFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_color, container, false);
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+@Override
+public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
 
-        int r = new Random().nextInt();
-        int g = new Random().nextInt();
-        int b = new Random().nextInt();
-        int color = Color.argb(255, r, g, b);
+    int r = new Random().nextInt();
+    int g = new Random().nextInt();
+    int b = new Random().nextInt();
+    int color = Color.argb(255, r, g, b);
 
-        color = getArguments().getInt("color", 0);
-        view.setBackgroundColor(color);
-    }
+    color = getArguments().getInt("color", 0);
+    view.setBackgroundColor(color);
+}
 
-    public void setColor(int color) {
-        // getView()는 이 프래그먼트에서 완성된 View를 가져온다
-        getView().setBackgroundColor(color);
-    }
+public void setColor(int color) {
+    // getView()는 이 프래그먼트에서 완성된 View를 가져온다
+    getView().setBackgroundColor(color);
+}
 }

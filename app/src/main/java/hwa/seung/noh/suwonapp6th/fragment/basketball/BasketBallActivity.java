@@ -8,24 +8,24 @@ import hwa.seung.noh.suwonapp6th.R;
 
 public class BasketBallActivity extends AppCompatActivity {
 
-    private BasketScoreFragment mATeamFragment;
-    private BasketScoreFragment mBTeamFragment;
+private BasketScoreFragment mATeamFragment;
+private BasketScoreFragment mBTeamFragment;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basket_ball2);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_basket_ball2);
 
-        mATeamFragment = (BasketScoreFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.frag_team_a);
-        mBTeamFragment = (BasketScoreFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.frag_team_b);
+    mATeamFragment = (BasketScoreFragment) getSupportFragmentManager()
+            .findFragmentById(R.id.frag_team_a);
+    mBTeamFragment = (BasketScoreFragment) getSupportFragmentManager()
+            .findFragmentById(R.id.frag_team_b);
 
-        mBTeamFragment.setTeamName("Team B");
-    }
+    mBTeamFragment.setTeamName("Team B");
+}
 
-    public void onResetButtonClicked(View view) {
-        mATeamFragment.reset();
-        mBTeamFragment.reset();
-    }
+public void onResetButtonClicked(View view) {
+    mATeamFragment.reset();
+    mBTeamFragment.reset();
+}
 }

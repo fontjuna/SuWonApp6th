@@ -15,16 +15,16 @@ public class ColorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_color);
     }
 
-    public void onCreateFragmentButtonClicked(View view) {
-        // 새로운 프레그먼트를 생성
-        // ColorFragment fragment = new ColorFragment();
-        ColorFragment fragment = new ColorFragment().newInstance(Color.RED);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
-    }
+//    public void onCreateFragmentButtonClicked(View view) {
+//        // 새로운 프레그먼트를 생성
+//        // ColorFragment fragment = new ColorFragment();
+//        ColorFragment fragment = new ColorFragment().newInstance(Color.RED);
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.container, fragment)
+//                .commit();
+//    }
 
-    public void onCreateRecFragmentButtonClicked(View view) {
+    public void onCreateRedFragmentButtonClicked(View view) {
         // ColorFragment fragment = new ColorFragment(); 인자 전달을 위해 아래로 바꿈
         ColorFragment fragment = new ColorFragment().newInstance(Color.RED);
 
@@ -53,7 +53,7 @@ public class ColorActivity extends AppCompatActivity {
                 .commit();
     }
 
-    public void onCreateRanFragmentButtonClicked(View view) {
+    public void onCreateRandomFragmentButtonClicked(View view) {
         ColorFragment fragment = new ColorFragment().newInstance();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
