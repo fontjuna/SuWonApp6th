@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="hwa.seung.noh.suwonapp6th.another.BballActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <fragment
+            android:id="@+id/bb_team_a"
+            android:name="hwa.seung.noh.suwonapp6th.another.BballFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_bball">
+        </fragment>
+
+        <fragment
+            android:id="@+id/bb_team_b"
+            android:name="hwa.seung.noh.suwonapp6th.another.BballFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_bball">
+        </fragment>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bb_reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="reset"/>
+
+</LinearLayout>
