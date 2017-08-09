@@ -1,6 +1,8 @@
 package hwa.seung.noh.suwonapp6th.another;
 
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,9 +18,20 @@ import hwa.seung.noh.suwonapp6th.R;
  */
 public class BballFragment extends Fragment implements View.OnClickListener {
 
+    public interface OnWarningListner {
+        void onWarning(String teamName);
+    }
     private TextView mScoreTextView;
     private TextView mTeamNameTextView;
     private int mScore = 0;
+
+    private OnWarningListner mListner;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mListner = (OnWarningListner) context;
+    }
 
     public BballFragment() {
         // Required empty public constructor
@@ -69,7 +82,14 @@ public class BballFragment extends Fragment implements View.OnClickListener {
                 mScore += 3;
                 break;
         }
+        if (mScore > 20) {
+            mListner.onWarning(mTeamNameTextView.getText().toString());
+        }
         mScoreTextView.setText(mScore + "");
+    }
+
+    public void warning() {
+        getView().setBackgroundColor(Color.RED);
     }
 
     @Override

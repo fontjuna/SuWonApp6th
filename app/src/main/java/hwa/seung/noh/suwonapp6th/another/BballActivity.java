@@ -6,7 +6,7 @@ import android.view.View;
 
 import hwa.seung.noh.suwonapp6th.R;
 
-public class BballActivity extends AppCompatActivity implements View.OnClickListener {
+public class BballActivity extends AppCompatActivity implements View.OnClickListener, BballFragment.OnWarningListner {
 
     BballFragment mFragmentTeamA;
     BballFragment mFragmentTeamB;
@@ -29,5 +29,14 @@ public class BballActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         mFragmentTeamA.reset();
         mFragmentTeamB.reset();
+    }
+
+    @Override
+    public void onWarning(String teamName) {
+        if (teamName.equals("Team A")) {
+            mFragmentTeamB.warning();
+        } else {
+            mFragmentTeamA.warning();
+        }
     }
 }
