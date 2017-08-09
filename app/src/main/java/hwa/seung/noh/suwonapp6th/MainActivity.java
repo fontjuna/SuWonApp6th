@@ -15,6 +15,9 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String TITLE = "title";
+    public static final String DESCRIPTION = "description";
+    public static final String CLASS = "class";
     List<Map<String, Object>> mDataList;
 
     @Override
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         SimpleAdapter adapter = new SimpleAdapter(this, mDataList,
                 android.R.layout.simple_list_item_2,
-                new String[] {"title", "description"},
+                new String[] {TITLE, DESCRIPTION},
                 new int[] {android.R.id.text1, android.R.id.text2});
 
         listView.setAdapter(adapter);
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Class cls = (Class) mDataList.get(position).get("class");
+                Class cls = (Class) mDataList.get(position).get(CLASS);
                 Intent intent = new Intent(MainActivity.this, cls);
                 startActivity(intent);
             }
