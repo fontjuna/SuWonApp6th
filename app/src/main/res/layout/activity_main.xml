@@ -1,35 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="hwa.seung.noh.suwonapp6th.MainActivity">
 
-    <TextView
+    <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#35931b"
-        android:text="Hello"
-        android:textSize="35sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#1b3d93"
-        android:textColor="#ffffff"
-        android:text="World"
-        android:textSize="35sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#93851b"
-        android:text="Beautiful"
-        android:textSize="35sp" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>
