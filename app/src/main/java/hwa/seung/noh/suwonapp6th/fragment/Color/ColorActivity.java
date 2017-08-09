@@ -1,4 +1,4 @@
-package hwa.seung.noh.suwonapp6th.fragment.Color;
+package hwa.seung.noh.suwonapp6th.fragment.color;
 
 import android.graphics.Color;
 import android.os.Bundle;
