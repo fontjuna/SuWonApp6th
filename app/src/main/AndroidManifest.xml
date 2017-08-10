@@ -87,43 +87,58 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".adapterview.DetailAddressActivity"/>
-        <activity android:name=".LifeCycleActivity">
+        <activity android:name=".adapterview.DetailAddressActivity"
+            android:label="상세주소"/>
+        <activity android:name=".LifeCycleActivity"
+            android:label="수명주기">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.basketball.BasketBallActivity">
+        <activity android:name=".fragment.basketball.BasketBallActivity"
+            android:label="농구조각">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.Color.ColorActivity">
+        <activity android:name=".fragment.color.ColorActivity"
+            android:label="칼라">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".WebViewActivity">
+        <activity android:name=".WebViewActivity"
+            android:label="엡뷰">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.exam.ColorExamActivity">
+        <activity android:name=".fragment.exam.ColorExamActivity"
+            android:label="칼라조각">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.exam.CallBackExamActivity">
+        <activity android:name=".fragment.exam.CallBackExamActivity"
+            android:label="콜백">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".fragment.sliding.SlidingActivity"
+            android:label="슬라이딩">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

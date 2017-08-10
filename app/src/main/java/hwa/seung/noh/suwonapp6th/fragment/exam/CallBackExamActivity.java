@@ -1,9 +1,9 @@
 package hwa.seung.noh.suwonapp6th.fragment.exam;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
 
-import hwa.seung.noh.suwonapp6th.R;
+        import hwa.seung.noh.suwonapp6th.R;
 
 public class CallBackExamActivity extends AppCompatActivity implements ChatFragment.OnSendMessageListener {
     private ChatFragment mChatFragment1;

@@ -1,8 +1,11 @@
 package hwa.seung.noh.suwonapp6th.fragment.basketball;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,29 +13,50 @@ import android.widget.TextView;
 
 import hwa.seung.noh.suwonapp6th.R;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by fontjuna on 2017-08-02.
  */
 
 public class BasketScoreFragment extends Fragment implements View.OnClickListener {
 
-    private TextView mTeamNameTextView;
+    public interface OnWarningListener {
+        void onWarning(String teamName);
+    }
+
     private TextView mScoreTextView;
+    private TextView mTeamNameTextView;
     private int mScore;
 
-    //뷰를 만드는 곳
+    private OnWarningListener mListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        // 액티비티와 연결 됨
+        if (context instanceof OnWarningListener) {
+            mListener = (OnWarningListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + "OnWarningListener를 구현해 주세요");
+        }
+    }
+
+    // 뷰를 만드는 곳
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: ");
         return inflater.inflate(R.layout.fragment_basket_score, container, false);
     }
 
-    //뷰가 다 만들어 진곳
-
+    // 뷰가 다 만들어 진 다음 호출되는 곳
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         mScoreTextView = (TextView) view.findViewById(R.id.score_text);
         mTeamNameTextView = (TextView) view.findViewById(R.id.team_name_text);
         view.findViewById(R.id.button_1).setOnClickListener(this);
@@ -64,15 +88,22 @@ public class BasketScoreFragment extends Fragment implements View.OnClickListene
                 mScore += 3;
                 break;
         }
+        if (mScore > 20) {
+            mListener.onWarning(mTeamNameTextView.getText().toString());
+        }
         mScoreTextView.setText("" + mScore);
     }
 
     public void reset() {
         mScore = 0;
-        mScoreTextView.setText("" + 0);
+        mScoreTextView.setText("" + mScore);
     }
 
     public void setTeamName(String name) {
         mTeamNameTextView.setText(name);
+    }
+
+    public void warning() {
+        getView().setBackgroundColor(Color.RED);
     }
 }
