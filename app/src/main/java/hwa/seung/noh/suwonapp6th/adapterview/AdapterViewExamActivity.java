@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import hwa.seung.noh.suwonapp6th.R;
-import hwa.seung.noh.suwonapp6th.util.DialogUtil;
+import hwa.seung.noh.suwonapp6th.fragment.MyAlertDialogFragment;
 import hwa.seung.noh.suwonapp6th.util.SharePreferenceUtil;
 
 public class AdapterViewExamActivity extends AppCompatActivity {
@@ -183,7 +183,9 @@ public class AdapterViewExamActivity extends AppCompatActivity {
 
     private void showDefaultDialog(final AdapterView.AdapterContextMenuInfo info) {
 
-        DialogUtil.createAlertDialog(this, new DialogInterface.OnClickListener() {
+//        MyAlertDialogFragment fragment = new MyAlertDialogFragment();
+        MyAlertDialogFragment fragment = MyAlertDialogFragment
+                .newInstance(new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
@@ -197,7 +199,24 @@ public class AdapterViewExamActivity extends AppCompatActivity {
                         break;
                 }
             }
-        }).show();
+        });
+        fragment.show(getSupportFragmentManager(), "alert");
+
+//        DialogUtil.createAlertDialog(this, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                switch (which) {
+//                    case DialogInterface.BUTTON_POSITIVE:
+//                        // 삭제
+//                        mPeopleData.remove(info.position);
+//                        // 업데이트
+//                        mAdapter.notifyDataSetChanged();
+//                        break;
+//                    case DialogInterface.BUTTON_NEGATIVE:
+//                        break;
+//                }
+//            }
+//        }).show();
 
     }
 

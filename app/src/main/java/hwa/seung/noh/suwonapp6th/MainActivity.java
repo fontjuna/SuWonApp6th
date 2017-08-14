@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     private void addItem(String title, String description, Class cls) {
         Map<String, Object> data = new HashMap<>();
         data.put(TITLE, title);

@@ -9,11 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import hwa.seung.noh.suwonapp6th.fragment.color.ColorFragment;
-import hwa.seung.noh.suwonapp6th.fragment.exam.ChatFragment;
-
 import hwa.seung.noh.suwonapp6th.R;
 import hwa.seung.noh.suwonapp6th.fragment.basketball.BasketScoreFragment;
+import hwa.seung.noh.suwonapp6th.fragment.color.ColorFragment;
+import hwa.seung.noh.suwonapp6th.fragment.exam.ChatFragment;
 
 
 public class SlidingActivity extends AppCompatActivity implements BasketScoreFragment.OnWarningListener,
